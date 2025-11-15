@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/AndrewP29/auth/utils"
+	"github.com/AndrewP29/auth/main"
 )
 
 type Login struct {
