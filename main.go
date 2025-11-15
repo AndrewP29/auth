@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"time"
+
+	"github.com/AndrewP29/auth/utils"
 )
 
 type Login struct {
@@ -45,6 +46,13 @@ func register(w http.ResponseWriter, r *http.Request){
 		http.Error(w, "User already exists", er)
 		return
 	}
+
+	hashedPassword, _ := hashedPassword(password)
+	users[username] = Login {
+		HashedPassword: hashedPassword,
+	}
+
+	fmt.Fprintln(w, "User registered successfully")
 }
 
 
